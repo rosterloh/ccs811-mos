@@ -1,3 +1,4 @@
+#include <math.h>
 #include "mgos_arduino_ccs811.h"
 
 Adafruit_CCS811 *mgos_ccs811_create() {

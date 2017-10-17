@@ -1,4 +1,5 @@
 #include "Adafruit_CCS811.h"
+#include <math.h>
 
 bool Adafruit_CCS811::begin(uint8_t addr)
 {
@@ -165,11 +166,10 @@ void Adafruit_CCS811::_i2c_init()
 
 void Adafruit_CCS811::read(uint8_t reg, uint8_t *buf, uint8_t num)
 {
-	uint8_t value;
 	uint8_t pos = 0;
 	
 	//on arduino we need to read in 32 byte chunks
-	while(pos < num){
+	while (pos < num) {
 		
 		uint8_t read_now = min(32, num - pos);
 		Wire.beginTransmission((uint8_t)_i2caddr);
@@ -177,7 +177,7 @@ void Adafruit_CCS811::read(uint8_t reg, uint8_t *buf, uint8_t num)
 		Wire.endTransmission();
 		Wire.requestFrom((uint8_t)_i2caddr, read_now);
 		
-		for(int i=0; i<read_now; i++){
+		for (int i=0; i<read_now; i++) {
 			buf[pos] = Wire.read();
 			pos++;
 		}
