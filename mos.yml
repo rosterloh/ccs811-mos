@@ -1,0 +1,20 @@
+author: Richard Osterloh
+description: Arduino Adafruit BME280 and BMP280 library
+type: lib
+version: 1.0
+
+sources:
+  - src
+includes:
+  - include
+libs:
+  - origin: https://github.com/mongoose-os-libs/arduino-compat
+  - origin: https://github.com/mongoose-os-libs/arduino-wire
+
+tags:
+  - arduino
+  - c
+  - js
+  - hw
+
+manifest_version: 2017-09-29
